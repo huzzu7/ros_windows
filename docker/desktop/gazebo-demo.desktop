@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Gazebo Demo
+Comment=Launch Gazebo Harmonic with a sample world
+Exec=/opt/rosgz/desktop/gazebo-demo.sh
+Icon=applications-science
+Type=Application
+Terminal=false
+Categories=Development;

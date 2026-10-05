@@ -1,0 +1,24 @@
+name: ros2-gazebo
+
+services:
+  desktop:
+    build: .
+    image: ros2-gazebo-desktop:jazzy
+    container_name: ros2-gazebo
+    ports:
+      # Only reachable from this laptop, not the network (default password is "ubuntu").
+      - "127.0.0.1:6080:80"
+    environment:
+      USER: ubuntu
+      PASSWORD: ubuntu
+    # Gazebo and DDS use shared memory; Docker's 64 MB default causes crashes.
+    shm_size: "2gb"
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      # Named volume (not a Windows folder): fast, no permission/line-ending issues.
+      - ros2_ws:/home/ubuntu/ros2_ws
+    restart: unless-stopped
+
+volumes:
+  ros2_ws:

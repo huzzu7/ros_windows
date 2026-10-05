@@ -1,0 +1,27 @@
+// VS Code (on Windows/Linux/macOS) → "Dev Containers: Reopen in Container".
+// Starts the same container as start.bat (or reuses it if it is already running).
+{
+  "name": "ROS 2 Jazzy + Gazebo",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "desktop",
+  "workspaceFolder": "/home/ubuntu/ros2_ws",
+  // Edit as the desktop user so files aren't root-owned.
+  "remoteUser": "ubuntu",
+  // Keep the browser desktop running after VS Code disconnects.
+  "shutdownAction": "none",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ranch-hand-robotics.rde-ros-2",
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
